@@ -11,19 +11,6 @@ load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def comparar_oportunidades(descripcion1, descripcion2):
-    """
-    Compara dos descripciones de oportunidades de negocio utilizando GPT-4o-mini
-    y retorna un porcentaje de similitud entre ellas.
-    
-    Args:
-        descripcion1 (str): Primera descripción de oportunidad
-        descripcion2 (str): Segunda descripción de oportunidad
-        
-    Returns:
-        float: Porcentaje de similitud entre las descripciones
-        str: Explicación detallada de la comparación
-    """
-    
     # Crear el prompt para GPT-4o-mini
     prompt = f"""
     Eres un experto en análisis legal y de negocios. Tu tarea es comparar dos oportunidades de negocio
@@ -56,7 +43,7 @@ def comparar_oportunidades(descripcion1, descripcion2):
                 {"role": "system", "content": "Eres un asistente especializado en análisis legal y comparación de oportunidades de negocio."},
                 {"role": "user", "content": prompt}
             ],
-            temperature=0.2,
+            temperature=0.1,
             response_format={"type": "json_object"}
         )
         
